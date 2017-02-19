@@ -1,0 +1,11 @@
+*/*/Debug/*
+Debug/*.exe
+Debug/*.ilk
+Debug/*.pdb
+RemoteSystemsTempFiles/
+**/CEGUI.log
+.metadata/
+/DIMyRCMAA.sdf
+/DIMyRCMAA.v12.suo
+/DIMyRCMAA.opensdf
+Debug/*.dll
