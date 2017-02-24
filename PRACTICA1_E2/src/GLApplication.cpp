@@ -18,10 +18,14 @@ const GLchar* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 color;\n"
 		"void main()\n"
 		"{\n"
-		"color = vec4(0.3f, 0.6f, 0.9f, 1.0f);\n"
+		"color = vec4(0.3f, 0.6f, 0.0f, 1.0f);\n"
 		"}\n\0";
 
-GLuint VBO, VAO, EBO;
+//Para poder crear más de un VAO, o, VBO, simplemente se declaran como arreglos.
+
+GLuint VBO[] = { 0,0 };
+GLuint VAO[] = { 0,0 };
+GLuint EBO;
 GLint vertexShader, fragmentShader, shaderProgram;
 
 GLApplication::GLApplication() :
@@ -86,8 +90,14 @@ void GLApplication::initialize() {
 	}
 
 	GLfloat vertices[] = { -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f,
-			0.0f, 0.5f, -0.5f, 0.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.5f,
-			0.0f };				//SE LE AUMENTÓ TRES VÉRTICES MÁS POR EL SEGUNDO TRIÁNGULO
+		0.0f, 0.5f, -0.5f, 0.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.5f,
+		0.0f };				//Vértices totales
+
+	GLfloat vertexTri1[] = { -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f,
+		0.0f};	//Triángulo 1
+	GLfloat vertexTri2[] = { 0.5f, -0.5f, 0.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.5f,
+		0.0f };	//Triángulo 2
+
 	// This is for the render with index element
 	/*GLfloat vertices[] = { 0.5f, 0.5f, 0.0f,  // Top Right
 	 0.5f, -0.5f, 0.0f,  // Bottom Right
@@ -99,27 +109,44 @@ void GLApplication::initialize() {
 					1, 2, 3   // Second Triangle
 			};
 
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
+	glGenVertexArrays(2, VAO);
+	glGenBuffers(2, VBO);
 	// This is for the render with index element
 	//glGenBuffers(1, &EBO);
+
+
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
 	// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
-	glBindVertexArray(VAO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBindVertexArray(VAO[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
 	// This is for the render with index element
 	/*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	 glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
 	 GL_STATIC_DRAW);*/
-
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
 			(GLvoid*) 0);
 	glEnableVertexAttribArray(0);
 
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
+	// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
+	glBindVertexArray(VAO[1]);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	// This is for the render with index element
+	/*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
+	GL_STATIC_DRAW);*/
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat),
+		(GLvoid*)0);
+	glEnableVertexAttribArray(0);
+
+
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
@@ -132,8 +159,10 @@ void GLApplication::applicationLoop() {
 
 		// Draw our first triangle
 		glUseProgram(shaderProgram);
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 6);				//ESTA ES LA FUNCIÓN QUE DIBUJA DEPENDIENDO DE CUÁNTOS VÉRTICES HAY
+		glBindVertexArray(VAO[0]);
+		glDrawArrays(GL_TRIANGLES, 0, 3);				//ESTA ES LA FUNCIÓN QUE DIBUJA DEPENDIENDO DE CUÁNTOS VÉRTICES HAY
+		glBindVertexArray(VAO[1]);
+		glDrawArrays(GL_TRIANGLES, 3, 3);				//ESTA ES LA FUNCIÓN QUE DIBUJA DEPENDIENDO DE CUÁNTOS VÉRTICES HAY
 		// This is for the render with index element
 		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
@@ -161,11 +190,11 @@ void GLApplication::destroy() {
 	glDisableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(2, VBO);
 
 	/*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	 glDeleteBuffers(1, &EBO);*/
 
 	glBindVertexArray(0);
-	glDeleteVertexArrays(1, &VAO);
+	glDeleteVertexArrays(2, VAO);
 }

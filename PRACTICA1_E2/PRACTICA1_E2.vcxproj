@@ -10,8 +10,22 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Headers\GLApplication.h" />
+    <ClInclude Include="src\Headers\GLFWManager.h" />
+    <ClInclude Include="src\Headers\InputManager.h" />
+    <ClInclude Include="src\Headers\TimeManager.h" />
+    <ClInclude Include="src\Headers\WindowManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GLApplication.cpp" />
+    <ClCompile Include="src\GLFWManager.cpp" />
+    <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\TimeManager.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E8F1D9D2-91F4-44CB-8A3E-234205DE3B1C}</ProjectGuid>
+    <ProjectGuid>{92F5AC66-5370-47C9-84B2-9E3665466DE6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PRACTICA1_E2</RootNamespace>
   </PropertyGroup>
