@@ -1,8 +1,8 @@
 /*
  * GLApplication.cpp
  *
- *  Created on: 07/08/2016
- *      Author: rey
+ *  Created on: 06/Marzo/2017
+ *      Author: Linkaacm
  */
 
 #include "Headers/GLApplication.h"
