@@ -14,7 +14,6 @@
     <ClInclude Include="src\Headers\GLApplication.h" />
     <ClInclude Include="src\Headers\GLFWManager.h" />
     <ClInclude Include="src\Headers\InputManager.h" />
-    <ClInclude Include="src\Headers\Shader.h" />
     <ClInclude Include="src\Headers\TimeManager.h" />
     <ClInclude Include="src\Headers\WindowManager.h" />
   </ItemGroup>
@@ -23,15 +22,10 @@
     <ClCompile Include="src\GLFWManager.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\TimeManager.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Shaders\basic.fs" />
-    <None Include="Shaders\basic.vs" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A39B25B-9DA6-40C9-959F-CBBE40AA4554}</ProjectGuid>
+    <ProjectGuid>{4AA1DEB9-0E8C-4E9C-8C95-8735358EDA4F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>PRACTICA1_E3</RootNamespace>
   </PropertyGroup>

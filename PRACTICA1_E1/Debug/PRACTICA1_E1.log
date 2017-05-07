@@ -1,4 +1,4 @@
-﻿Build started 17/04/2017 11:25:28 p. m..
+﻿Build started 05/05/2017 06:49:01 p. m..
      1>Project "C:\Users\Armando\Documents\Visual Studio 2013\Projects\DIMyRCMAA\PRACTICA1_E1\PRACTICA1_E1.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"../../external/glm-0.9.5.2/glm" /I"../../external/glew-1.10.0-win32/glew-1.10.0/include" /I"../../external/glfw-3.1.bin.WIN32/include" /I"../../external/assimp-3.1.1/include" /I"../../external/freetype-2.3.5-1-bin/include" /I"../../external/freetype-2.3.5-1-bin/include/freetype2" /I../../external/FreeImage3170/FreeImage/Source /I../../external/AntTweakBar/include /I"../../external/cegui-0.8.7/cegui/include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\GLApplication.cpp src\GLFWManager.cpp src\InputManager.cpp src\main.cpp src\TimeManager.cpp
@@ -24,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.20
+Time Elapsed 00:00:04.52

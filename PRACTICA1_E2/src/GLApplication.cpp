@@ -18,7 +18,7 @@ const GLchar* fragmentShaderSource = "#version 330 core\n"
 		"out vec4 color;\n"
 		"void main()\n"
 		"{\n"
-		"color = vec4(0.3f, 0.6f, 0.0f, 1.0f);\n"
+		"color = vec4(0.811f, 0.972f, 0.709f, 1.0f);\n"
 		"}\n\0";
 
 //Para poder crear más de un VAO, o, VBO, simplemente se declaran como arreglos.
